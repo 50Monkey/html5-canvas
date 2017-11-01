@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            background: rgba(45, 148, 167, 0.712);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="700px" height="700px"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        function Ball() {
+            this.x = parseInt( Math.random() * canvas.width);
+            this.y = parseInt( Math.random() * canvas.height);
+            this.r = 5;
+            this.paint = function () { //绘制
+                context.beginPath();
+                context.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+                context.fillStyle = "white" ;
+                context.fill();
+            }
+            this.move = function () { //移动
+                this.y++;
+            }
+        }
+        var arry = [];
+
+        function create() {
+            var ball = new Ball();
+            arry.push(ball);
+        }
+        function balls(){
+            for(var i=0;i<arry.length;i++){
+                arry[i].paint();
+                arry[i].move();
+            }
+        }
+
+        setInterval(function () {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            create();
+            balls();
+        }, 100);
+    </script>
+</body>
+
+</html>

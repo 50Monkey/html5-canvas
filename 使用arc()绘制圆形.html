@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas=document.getElementById("canvas");
+            var context=canvas.getContext("2d");
+            context.fillStyle="#eee";
+            context.strokeStyle="black";
+            context.fillRect(10,10,400,300);
+
+            context.beginPath();
+            context.arc(210,160,100,0,Math.PI*2,true);
+            context.closePath();
+            context.fillStyle='rgba(195,155,100,0.5)';
+            context.fill();
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+</body>
+
+</html>

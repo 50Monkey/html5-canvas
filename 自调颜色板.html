@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #colorpicker {
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            background: #eee;
+        }
+
+        #main {
+            position: relative;
+            left: 50%;
+            margin-left: -65px;
+        }
+
+        #color {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border: 1px solid #000000;
+            position: relative;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="colorpicker">
+        <div id="main">
+            <div id="color">
+                颜色区域
+            </div>
+            <br> 红色：
+            <form action="" oninput="show.value=r.value">
+                <input id="r" type="range" min="0" max="255" value="0">
+                <output id="show">0</output>
+            </form>
+            <br> 绿色：
+            <form action="" oninput="show2.value=g.value">
+                <input id="g" type="range" min="0" max="255" value="0">
+                <output id="show2">0</output>
+            </form>
+            <br> 蓝色：
+            <form action="" oninput="show3.value=b.value">
+                <input id="b" type="range" min="0" max="255" value="0">
+                <output id="show3">0</output>
+            </form>
+        </div>
+
+        <br>
+    </div>
+</body>
+<script>
+    var inputs = document.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) { //对每一个input标签绑定oninput事件
+        inputs[i].onchange = function () {
+            var r = document.getElementById("r").value;
+            var g = document.getElementById("g").value;
+            var b = document.getElementById("b").value;
+            var color = document.getElementById("color");
+            color.style.background = "rgb(" + r + "," + g + "," + b + ")"; //注意使用拼串格式
+        };
+    }
+</script>
+
+</html>

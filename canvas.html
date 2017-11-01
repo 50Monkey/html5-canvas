@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500px" height="600px"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas"); //获取canvas元素
+        var context = canvas.getContext("2d"); //创建画布对象
+        context.fillStyle = "yellow"; //一定要先设置样式，再绘制图形
+        context.strokeStyle = "black";
+        context.fillRect(10, 10, 100, 100);
+        context.strokeRect(10, 10, 100, 100);
+        context.globalAlpha=0.6;
+        context.fillRect(120,120,100,100);
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="500px"> </canvas>
+    <script>
+        setInterval(function () {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            var x = parseInt(Math.random() * canvas.width);
+            var y = parseInt(Math.random() * canvas.height);
+            var width = parseInt(Math.random() * canvas.width - x);
+            var height = parseInt(Math.random() * canvas.height - y);
+            var r = parseInt(Math.random() * 255);
+            var g = parseInt(Math.random() * 255);
+            var b = parseInt(Math.random() * 255);
+            context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+            context.fillRect(x, y, width, height);
+        },100);
+    </script>
+</body>
+
+</html>

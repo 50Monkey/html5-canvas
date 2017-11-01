@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="400px" height="300px"></canvas>
+    <script>
+    var canvas=document.getElementById("canvas");
+    var context=canvas.getContext("2d");
+    var colorgrad=context.createLinearGradient(0,0,200,250);   //创建LinearGradient对象
+    colorgrad.addColorStop(0.4,"yellow");     //设置渐变颜色及偏移量，须至少设置两个
+    colorgrad.addColorStop(0.8,"blue"); 
+    context.fillStyle=colorgrad;       //将渐变效果设置为填充样式
+    context.fillRect(0,0,400,300);     //绘制图形
+    </script>
+</body>
+</html>
